@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .bar-none {
+        scrollbar-width: none;
+        scroll-behavior: smooth;
+    }
+
+    /* Text Animations */
+    .text-outline {
+        -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1);
+        color: transparent;
+    }
+    
+    .group:hover .group-hover\:text-white {
+        color: white;
+    }
+
+    /* animation classes for text in Transform Component */
+    .animated-text {
+        animation: scale-text linear both;
+        animation-timeline: view(30%);
+    }
+    .animated-text2 {
+        animation: scale-text2 linear both;
+        animation-timeline: view(30%);
+    }
+    
+    .animated-heading {
+        animation: scale-text linear both;
+        animation-timeline: view(30%);
+    }
+    
+    .animated-para {
+        animation: color-para linear both;
+        animation-timeline: view(25%);
+    }
+
+    /* animation classes for images in Transform Component */
+    .animated-learner {
+        animation: learner linear both;
+        animation-timeline: view(45%);
+    }
+    
+    .animated-placement {
+        animation: placement linear both;
+        animation-timeline: view(45%);
+    }
+    
+    .animated-average-ctc {
+        animation: average-ctc linear both;
+        animation-timeline: view(45%);
+    }
+    
+    .animated-hike {
+        animation: hike linear both;
+        animation-timeline: view(45%);
+    }
+
+    /* animation classes for loading bars in Advantage Component */
+    .animated-coding-ninjas {
+        animation: coding-ninjas 3s ease-out;
+    }
+    
+    .animated-others {
+        animation: others 10s ease-out;
+    }
+
+    /* Icon Animations */
+    .animated-icon {
+        animation: fade-scale linear both;
+        animation-timeline: view(45%);
+        animation-range: entry 20% cover 50%;
+        opacity: 0.4;
+    }
+
+    /* Card Container Animations */
+    .animated-card {
+        animation: slide-up linear both;
+        animation-timeline: view(40%);
+        animation-range: entry 20% cover 50%;
+    }
+
+    /* Keyframes for animated text in Transform Component */
+    @keyframes scale-text {
+        0% { scale: 0.95; color: #555;}
+        25% { scale: 1.075; color: #ffffff;}
+        100% { scale: 1.075; color: #ffffff;}
+    }
+    @keyframes scale-text2 {
+        0% { scale: 0.95; color: #555;}
+        25% { scale: 1.075; color: #ffc147;}
+        100% { scale: 1.075; color: #ffc147;}
+    }
+    
+    @keyframes color-para {
+        0% { color: #555;}
+        25%, 50%, 100%  { color: #999;}
+    }
+
+    /* Keyframes for animated images in Transform Component */
+    @keyframes learner {
+        0% { background-color: #2f2f2f;}
+        25%, 50%, 100%  { background-color: #6249c5;}
+    }
+    
+    @keyframes placement {
+        0% { background-color: #2f2f2f;}
+        25%, 50%, 100%  { background-color: #65b168;}
+    }
+    
+    @keyframes average-ctc {
+        0% { background-color: #2f2f2f;}
+        25%, 50%, 100%  { background-color: #ef6292;}
+    }
+    
+    @keyframes hike {
+        0% { background-color: #2f2f2f;}
+        25%, 50%, 100%  { background-color: #5780e9;}
+    }
+
+    /* Keyframes for loading animation in Advantage Component */
+    @keyframes coding-ninjas {
+        0% {width: 0%;}
+        100% {width: 100%;}
+    }
+    
+    @keyframes others {
+        0% {width: 0%;}
+        100% {width: 75%;}
+    }
+
+    /* Additional keyframes from the second set */
+    @keyframes fade-in {
+        from { 
+            opacity: 0.4;
+            transform: translateY(10px);
+        }
+        to { 
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fade-scale {
+        from { 
+            opacity: 0.4;
+            transform: scale(0.95);
+        }
+        to { 
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes slide-up {
+        from {
+            opacity: 0.4;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+}
+
+/* Base opacity for animated elements before they come into view */
+.animated-text,
+.animated-heading,
+.animated-para,
+.animated-icon {
+    opacity: 0.4;
+    will-change: opacity, transform;
+}
+
+/* Ensure elements stay white after animation completes */
+.animated-text.view-done,
+.animated-heading.view-done {
+    color: #ffffff;
+    scale: 1.075;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
+
+/* Ensure smooth transitions */
+* {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Background colors for icons */
+.bg-purple-900 {
+    background-color: #6249c5;
+}
+
+.bg-green-600 {
+    background-color: #65b168;
+}
+
+.bg-pink-500 {
+    background-color: #ef6292;
+}
+
+.bg-blue-600 {
+    background-color: #5780e9;
+}
